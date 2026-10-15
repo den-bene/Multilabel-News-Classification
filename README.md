@@ -32,7 +32,13 @@ python -m pip install -r requirements.txt
 
 Place `input_data.pkl` in `data/` or beside the notebook, then open `news_classification.ipynb` and run all cells. In Colab, upload the dataset to the runtime's file panel. If packages are missing, upload `requirements.txt` and run `%pip install -r requirements.txt` in a cell.
 
-The dataset is about 883 MB and is excluded from the repository. Its [original download location](https://frasca.di.unimi.it/MLDNN/input_data.zip) is provided for reference; availability has not been verified. Load pickle files only from a trusted source. The file contains `texts`, `years`, `months`, `X_bow` and `labels`.
+The results use the original news dataset `input_data.pkl` (883,509,337 bytes), containing `texts`, `years`, `months`, `X_bow` and `labels`. The dataset is kept locally and is not included on GitHub. No verified public download is currently provided. Files with the same name may contain different datasets; the notebook checks the SHA-256 fingerprint before loading:
+
+```text
+fb522de3f041a6fec6dc0dc4a7421720baa6f83953dea1b82bc33fd5ec1d0d2a
+```
+
+Use the matching news dataset to reproduce these results. Load pickle files only from a trusted source.
 
 Running the notebook creates `reports/` and `news_results.zip`, containing the trained model, preprocessing settings, split assignments, predictions and metrics. These files are excluded from Git. Download the archive before closing a Colab runtime.
 
