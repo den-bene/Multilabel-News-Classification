@@ -1,7 +1,5 @@
 # Multi-label news classification
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/den-bene/multilabel-news-classification/blob/main/news_classification.ipynb)
-
 Classification of news articles into 18 categories using TensorFlow. Each article has two or three labels. The dataset contains 11,000 articles, their publication year and month, and 10,000 Bag-of-Words features.
 
 The network combines three inputs: text encoded by an Embedding and Bidirectional LSTM, Bag-of-Words counts, and standardized publication metadata. Two Dense layers combine these representations before 18 sigmoid outputs. Training uses binary cross-entropy, dropout, batch normalization and early stopping; four configurations compare network size, dropout and L2 regularization.
@@ -22,7 +20,11 @@ Model selection uses validation macro-F1 at threshold 0.5. Among configurations 
 
 Subset accuracy counts an article as correct only when all its labels match. The [notebook](news_classification.ipynb) includes the configuration comparison, results at threshold 0.5, and per-label metrics and F1 chart. Categories are identified by number because their names are not supplied.
 
-## Run
+## Dataset
+
+The dataset was provided for a university exam and is not redistributed in this repository. The notebook includes the model architecture, training code and recorded results. Rerunning the experiment requires access to the original `input_data.pkl` file (about 883 MB).
+
+## Run with the original dataset
 
 Use Python 3.11 or 3.12. Install the dependencies:
 
@@ -30,7 +32,7 @@ Use Python 3.11 or 3.12. Install the dependencies:
 python -m pip install -r requirements.txt
 ```
 
-Place the original `input_data.pkl` in `data/` or beside the notebook, then run all cells. The dataset is about 883 MB and contains 11,000 news articles with text, publication year/month, Bag-of-Words features and labels. It is not included in the repository.
+If you have the original dataset, place `input_data.pkl` in `data/` or beside the notebook, then run all cells.
 
 In Colab, upload `input_data.pkl` to the file panel. If packages are missing, upload `requirements.txt` and run `%pip install -r requirements.txt` in a cell. Only load pickle files from a trusted source.
 
